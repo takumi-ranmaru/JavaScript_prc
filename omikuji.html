@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="button" id="button">占う</button>
+    <div id="result"></div>
+    <script>
+
+        var omikuji = ["大吉", "中吉", "吉", "凶", "大凶"];
+        var button = document.getElementById("button");
+        var result = document.getElementById("result");
+        
+        button.addEventListener("click", function() {
+           // clickされた時の処理
+            var o_index = Math.floor(Math.random() * omikuji.length)
+            var html_p = document.createElement("p");
+
+            html_p.appendChild(
+                document.createTextNode("アナタの運勢は・・・「" + omikuji[o_index] + "」です！")
+            );
+
+            result.textContent = null;
+            result.appendChild(html_p)
+            button.textContent = "もう一度占う"
+
+        });
+     </script>
+</body>
+</html>
